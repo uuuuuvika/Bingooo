@@ -6,6 +6,7 @@ import quotes from './quotes.json';
 function App() {
 
   const [board, setBoard] = useState(null);
+  const didWon = true;
 
   useEffect(() => {
     let twoDBoard = [];
@@ -28,7 +29,7 @@ function App() {
   }
 
   return (
-    <div className='container text-center grid'>
+    <div className={didWon ? 'container text-center winning-buzz' : 'container text-center grid'}>
       <div className='row row-cols-5'>
         {board ? board.flatMap(function (innerArray, row) {
           return innerArray.map(function (quoteObj, col) {

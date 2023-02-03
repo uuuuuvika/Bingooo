@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap');
+
+.grid {
+  font-family: 'Space Grotesk', sans-serif;
+  max-width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.row {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
+.winning-buzz {
+  font-family: 'Space Grotesk', sans-serif;
+  max-width: 700px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  animation: shake 0.5s;
+  animation-iteration-count: 4;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(-51%, -50%) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-50%, -50%) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) rotate(1deg);
+ 
+  }
+
+  30% {
+    transform: translate(-50%, -50%) rotate(0deg);
+    
+  }
+
+  40% {
+    transform: translate(-50%, -50%) rotate(1deg);
+  
+  }
+
+  50% {
+    transform: translate(-50%, -50%) rotate(-1deg);
+   
+  }
+
+  60% {
+    transform: translate(-50%, -50%) rotate(0deg);
+   
+  }
+
+  70% {
+    transform: translate(-50%, -50%) rotate(-1deg);
+   
+  }
+
+  80% {
+    transform: translate(-50%, -50%) rotate(1deg);
+
+  }
+
+  90% {
+    transform: translate(-50%, -50%) rotate(0deg);
+
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(-1deg);
+    
+  }
+  
+}
