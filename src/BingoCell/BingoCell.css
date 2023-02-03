@@ -1,0 +1,9 @@
+.cell {
+    height: 18vh;
+    padding: 1%;
+    border-radius: 4%;
+    border: 2px solid rebeccapurple;
+}
+.central {
+    font-weight: 600;
+}
