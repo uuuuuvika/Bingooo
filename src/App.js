@@ -13,7 +13,7 @@ function App() {
   const [board, setBoard] = useState(null);
   const [numWinningCombinations, setNumWinningCombinations] = useState(0);
   const [mute, setMute] = useState(true);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     setNumWinningCombinations(checkVictory(board));
@@ -63,6 +63,7 @@ function App() {
                   key={'' + row + col}
                   index={'' + row + col}
                   quoteObj={quoteObj}
+                  darkMode={darkMode}
                   onClick={() => { handleClick(row, col) }}>
                 </BingoCell>
               )
