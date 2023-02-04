@@ -2,47 +2,75 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import BingoCell from './BingoCell/BingoCell';
 import quotes from './quotes.json';
+import checkVictory from './checkVictory';
+import * as Tone from 'tone';
+import clickSound from './Assets/psi-004.wav';
+import victorySound from './Assets/psi-009.wav';
+import playSound from './makeSound';
 
 function App() {
 
   const [board, setBoard] = useState(null);
-  const didWon = true;
+  const [numWinningCombinations, setNumWinningCombinations] = useState(0);
+  const [mute, setMute] = useState(true);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    let twoDBoard = [];
-    let initBingo = quotes.sort(() => Math.random() - 0.5).slice(0, 24).map(quote => {
+    setNumWinningCombinations(checkVictory(board));
+  }, [board]);
+
+  useEffect(() => {
+    let startingBoard = [];
+    let cells = quotes.sort(() => Math.random() - 0.5).slice(0, 24).map(quote => {
       return { quote: quote, isClicked: false }
     });
-    initBingo.splice(12, 0, { quote: "CONF CALL BINGO", isClicked: true }); //shuffle & insert middle one
-    for (let i = 0; i < initBingo.length; i += 5) { //2D array
-      twoDBoard.push(initBingo.slice(i, i + 5));
+    cells.splice(12, 0, { quote: "CONF CALL BINGO", isClicked: true }); //shuffle & insert middle one
+    for (let i = 0; i < cells.length; i += 5) { //split cells into rows and put them in 2D array
+      startingBoard.push(cells.slice(i, i + 5));
     }
-    setBoard(twoDBoard);
+    setBoard(startingBoard);
   }, []);
 
-  function whenCellClicked(row, col) {
+  useEffect(() => { //play victory sound
+    if (numWinningCombinations != 0 && !mute) {
+      playSound(victorySound);
+    }
+  }, [numWinningCombinations]);
+
+  function handleClick(row, col) {
     console.log(`text[${row}][${col}] = ` + board[row][col].quote);
     board[row][col].isClicked = true;
-    setBoard([...board]);
+    setBoard([...board]); //on click rerender the component
+    //play click sound effect
+    if (!mute) {
+      playSound(clickSound);
+    }
+  }
 
-    console.log(board[row][col]);
+  async function handleSound() { //mute-unmute
+    await Tone.start();
+    setMute(!mute);
   }
 
   return (
-    <div className={didWon ? 'container text-center winning-buzz' : 'container text-center grid'}>
-      <div className='row row-cols-5'>
-        {board ? board.flatMap(function (innerArray, row) {
-          return innerArray.map(function (quoteObj, col) {
-            return (
-              <BingoCell
-                key={'' + row + col}
-                index={'' + row + col}
-                quoteObj={quoteObj}
-                onClick={() => {whenCellClicked(row, col)}}>
-              </BingoCell>
-            )
-          })
-        }) : null}
+    <div className={darkMode ? 'dark-mode' : ''}>
+      <div className={numWinningCombinations === 0 ? 'container text-center grid' : 'container text-center winning-buzz'} key={numWinningCombinations}>
+        <div className='row row-cols-5'>
+          {board ? board.flatMap(function (innerArray, row) {
+            return innerArray.map(function (quoteObj, col) {
+              return (
+                <BingoCell
+                  key={'' + row + col}
+                  index={'' + row + col}
+                  quoteObj={quoteObj}
+                  onClick={() => { handleClick(row, col) }}>
+                </BingoCell>
+              )
+            })
+          }) : null}
+        </div>
+        <button className='btn btn-dark bottom' onClick={() => {setDarkMode(!darkMode)}}>Dark Mode</button>
+        <button className='btn btn-dark bottom' onClick={handleSound}>{mute ? 'Sound' : 'Mute'}</button>
       </div>
     </div>
   );

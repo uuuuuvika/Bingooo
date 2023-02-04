@@ -2,7 +2,7 @@
     "Is ___ on call?",
     "Hello, hello?",
     "I need to jump in another call.",
-    "You were frozen...",
+    "You was frozen...",
     "Can you share your screen?",
     "Can you turn on your video?",
     "I need to step away for a moment.",
@@ -19,10 +19,12 @@
     "Can you please repeat that?",
     "Sry, I missed the beginning of the meeting...",
     "Can you share the notes to everyone?",
-    "Can you share slides?",
+    "Could you share this slides?",
     "We're having trouble with the connection.",
     "(construction noise in the background)",
-    "We lost her/ him.",
+    "We lost her/ him...",
     "(Eating something)",
-    "I gonna share my screen now."
+    "I gonna share my screen now.",
+    "Sry, I was on mute.",
+    "(awkward silence)"
 ]
