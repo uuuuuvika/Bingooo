@@ -38,9 +38,9 @@ function App() {
   }, [numWinningCombinations]);
 
   function handleClick(row, col) {
-    console.log(`text[${row}][${col}] = ` + board[row][col].quote);
+    console.log(`text[${row}][${col}] = ${board[row][col].quote}`);
     board[row][col].isClicked = true;
-    setBoard([...board]); //on click rerender the component
+    setBoard([...board]); //make new arr to rerender the board component
     //play click sound effect
     if (!mute) {
       playSound(clickSound);
@@ -64,14 +64,14 @@ function App() {
                   index={'' + row + col}
                   quoteObj={quoteObj}
                   darkMode={darkMode}
-                  onClick={() => { handleClick(row, col) }}>
+                  onClick={() => {handleClick(row, col)}}>
                 </BingoCell>
               )
             })
           }) : null}
         </div>
         <button className='btn btn-dark bottom' onClick={() => {setDarkMode(!darkMode)}}>Dark Mode</button>
-        <button className='btn btn-dark bottom' onClick={handleSound}>{mute ? 'Sound' : 'Mute'}</button>
+        <button className='btn btn-dark bottom' onClick={handleSound}>{mute ? 'Turn On Sound' : 'Mute Sound'}</button>
       </div>
     </div>
   );
