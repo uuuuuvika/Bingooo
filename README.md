@@ -1,1 +1,1 @@
-# Bingooo Challenge 
+# Bingooo Challenge
