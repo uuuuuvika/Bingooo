@@ -26,6 +26,22 @@
   transform: translate(-50%, -50%);
 }
 
+.btn-dark {
+  margin-top: 3%;
+  margin-right: 3%;
+}
+
+.bottom {
+  margin: 2%;
+}
+
+.dark-mode {
+  background-color: black;
+  height: 100vh;
+  color: aliceblue;
+}
+
+
 @keyframes shake {
   0% {
     transform: translate(-51%, -50%) rotate(0deg);
