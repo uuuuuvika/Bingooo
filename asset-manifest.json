@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Bingooo/static/css/main.a56cfea0.css",
+    "main.js": "/Bingooo/static/js/main.53ba5edf.js",
+    "static/js/787.8cf5345b.chunk.js": "/Bingooo/static/js/787.8cf5345b.chunk.js",
+    "static/media/psi-004.wav": "/Bingooo/static/media/psi-004.8ffec74380c583a9f993.wav",
+    "static/media/psi-009.wav": "/Bingooo/static/media/psi-009.a53e3d97d5f4cd47599f.wav",
+    "index.html": "/Bingooo/index.html",
+    "main.a56cfea0.css.map": "/Bingooo/static/css/main.a56cfea0.css.map",
+    "main.53ba5edf.js.map": "/Bingooo/static/js/main.53ba5edf.js.map",
+    "787.8cf5345b.chunk.js.map": "/Bingooo/static/js/787.8cf5345b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a56cfea0.css",
+    "static/js/main.53ba5edf.js"
+  ]
+}
